@@ -235,23 +235,37 @@ nav {
     var(--nav-link-hover-bg)
   );
   padding: 0.75rem 0;
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-image 0.3s ease, background-color 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: background-image 0.3s, background-color 0.3s, box-shadow 0.3s,
+    position 0.3s, top 0.3s;
 }
 
-nav.navbar-scrolled {
+nav.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  margin: 0;
+}
+
+nav.navbar-fixed,
+nav.navbar-fixed.navbar-scrolled {
   background-image: linear-gradient(
     to right,
-    rgba(0, 137, 123, 0.75),
-    rgba(38, 166, 154, 0.75)
+    rgba(0, 137, 123, 0.85),
+    rgba(38, 166, 154, 0.85)
   );
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+body.navbar-fixed-padding {
+  padding-top: 64px;
 }
 
 main {
@@ -371,8 +385,7 @@ article#wisata section.active > div + p {
   margin-top: 1rem;
   transform: translateY(0);
   transition: max-height 0.35s ease-in-out, opacity 0.25s ease-in-out 0.1s,
-    margin-top 0.35s ease-in-out,
-    transform 0.3s ease-in-out 0.1s;
+    margin-top 0.35s ease-in-out, transform 0.3s ease-in-out 0.1s;
 }
 
 @media screen and (max-width: 992px) {

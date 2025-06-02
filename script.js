@@ -98,7 +98,26 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(pageHero);
   };
 
+  const initNavbarFixed = () => {
+    const nav = document.querySelector("nav");
+    const header = document.querySelector("header");
+    if (!nav || !header) return;
+
+    const navOffset = nav.offsetTop;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= header.offsetHeight) {
+        nav.classList.add("navbar-fixed");
+        document.body.classList.add("navbar-fixed-padding");
+      } else {
+        nav.classList.remove("navbar-fixed");
+        document.body.classList.remove("navbar-fixed-padding");
+      }
+    });
+  };
+
   initCardAnimation();
   initWisataAccordion();
   initNavbarScrollEffect();
+  initNavbarFixed();
 });
